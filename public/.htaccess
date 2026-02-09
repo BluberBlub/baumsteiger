@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Optional: Force www or non-www if needed (currently sticking to what user requested)
+# RewriteCond %{HTTP_HOST} ^www\.baumsteiger\.niko-endres\.de [NC]
+# RewriteRule ^(.*)$ https://baumsteiger.niko-endres.de/$1 [L,R=301]
+
+# Handle trailing slashes - Astro default behavior usually adds them
+# DirectorySlash On
+
+# Basic Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Custom Error Pages (optional, points to root index for SPA-like navigation if needed, but this is static)
+ErrorDocument 404 /404.html

@@ -10,49 +10,69 @@ const { service } = Astro.props;
 ---
 
 <article
-    class="h-full flex flex-col bg-white rounded-xl border border-neutral-200 hover:border-primary/40 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group"
+    class="h-full flex flex-col bg-white rounded-2xl border border-neutral-100/80 shadow-sm hover:shadow-xl hover:shadow-[var(--color-primary-dark)]/5 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group"
 >
-    <!-- Image -->
+    <!-- Image with organic bottom curve -->
     {
         service.image && (
             <div class="relative aspect-[4/3] overflow-hidden">
+                <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 z-10" />
                 <img
                     src={service.image}
                     alt={service.title}
                     loading="lazy"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
             </div>
         )
     }
 
-    <div class="p-5 flex flex-col flex-grow">
+    <div class="p-6 flex flex-col flex-grow relative">
+        <!-- Decor line -->
+        <div
+            class="absolute top-0 left-6 right-6 h-px bg-neutral-100 group-hover:bg-accent/50 transition-colors duration-500"
+        >
+        </div>
+
         <!-- Title -->
-        <h3 class="text-lg font-bold text-neutral-900 mb-2">
+        <h3
+            class="font-serif text-xl font-bold text-neutral-800 mb-3 group-hover:text-primary transition-colors duration-300"
+        >
             {service.title}
         </h3>
 
         <!-- Full Description -->
-        <p class="text-neutral-600 text-sm leading-relaxed flex-grow">
+        <p class="text-neutral-600 text-sm leading-relaxed flex-grow font-sans">
             {service.description}
         </p>
 
         <!-- Simple Link CTA -->
-        <a
-            href="#kontakt"
-            class="mt-4 inline-flex items-center gap-1 text-primary font-medium text-sm hover:gap-2 transition-all duration-300"
+        <div
+            class="mt-5 flex items-center text-primary font-semibold text-sm group-hover:text-accent transition-colors duration-300"
         >
-            Anfragen
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+            <span class="mr-2">Anfragen</span>
+            <span
+                class="bg-primary/10 group-hover:bg-accent/10 p-1.5 rounded-full transition-colors duration-300"
             >
-                <path d="m9 18 6-6-6-6"></path>
-            </svg>
-        </a>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </span>
+        </div>
+
+        <!-- Bottom Accent -->
+        <div
+            class="absolute bottom-0 left-0 h-1 bg-accent/0 group-hover:bg-accent transition-all duration-500 w-0 group-hover:w-full"
+        >
+        </div>
     </div>
 </article>

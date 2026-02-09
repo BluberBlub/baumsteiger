@@ -39,7 +39,7 @@ export default function MobileNav({ navigation }: Props) {
             {/* Hamburger Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center"
+                className="md:hidden relative z-[70] w-10 h-10 flex items-center justify-center"
                 aria-label={isOpen ? "Menü schließen" : "Menü öffnen"}
                 aria-expanded={isOpen}
             >
@@ -68,7 +68,7 @@ export default function MobileNav({ navigation }: Props) {
             {/* Overlay */}
             <div
                 className={cn(
-                    "fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 md:hidden",
+                    "fixed inset-0 z-[60] bg-black/50 transition-opacity duration-300 md:hidden",
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 )}
                 onClick={() => setIsOpen(false)}
@@ -78,7 +78,7 @@ export default function MobileNav({ navigation }: Props) {
             {/* Mobile Menu */}
             <nav
                 className={cn(
-                    "fixed top-0 right-0 z-40 h-full w-72 bg-white shadow-xl transition-transform duration-300 md:hidden",
+                    "fixed top-0 right-0 z-[60] h-full w-72 bg-white shadow-xl transition-transform duration-300 md:hidden",
                     isOpen ? "translate-x-0" : "translate-x-full"
                 )}
                 aria-label="Mobile Navigation"

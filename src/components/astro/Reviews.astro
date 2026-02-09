@@ -2,17 +2,22 @@
 
 ---
 
-<section
-    id="reviews"
-    class="section bg-neutral-900 text-white relative overflow-hidden"
->
-    <!-- Background Decor -->
-    <div
-        class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none"
-    >
+<section id="reviews" class="section relative overflow-hidden bg-neutral-900">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <div
+            class="absolute inset-0 bg-[url('/images/hero/hero-bg.jpg')] bg-cover bg-center opacity-40 mix-blend-overlay"
+        >
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-primary-dark/95 to-neutral-900/95"
+        >
+        </div>
     </div>
+
+    <!-- Background Decor - kept subtle -->
     <div
-        class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"
+        class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none opacity-50"
     >
     </div>
 
@@ -76,8 +81,12 @@
                         M
                     </div>
                     <div>
-                        <p class="font-medium text-white">Michael Weber</p>
-                        <p class="text-xs text-neutral-300">Vor 2 Wochen</p>
+                        <p
+                            class="font-bold text-xl text-primary drop-shadow-md"
+                        >
+                            Michael Weber
+                        </p>
+                        <p class="text-sm text-neutral-300">Vor 2 Wochen</p>
                     </div>
                 </div>
             </div>
@@ -121,8 +130,12 @@
                         S
                     </div>
                     <div>
-                        <p class="font-medium text-white">Sabine Müller</p>
-                        <p class="text-xs text-neutral-300">Vor 1 Monat</p>
+                        <p
+                            class="font-bold text-xl text-primary drop-shadow-md"
+                        >
+                            Sabine Müller
+                        </p>
+                        <p class="text-sm text-neutral-300">Vor 1 Monat</p>
                     </div>
                 </div>
             </div>
@@ -166,8 +179,12 @@
                         T
                     </div>
                     <div>
-                        <p class="font-medium text-white">Thomas K.</p>
-                        <p class="text-xs text-neutral-300">Vor 2 Monaten</p>
+                        <p
+                            class="font-bold text-xl text-primary drop-shadow-md"
+                        >
+                            Thomas K.
+                        </p>
+                        <p class="text-sm text-neutral-300">Vor 2 Monaten</p>
                     </div>
                 </div>
             </div>

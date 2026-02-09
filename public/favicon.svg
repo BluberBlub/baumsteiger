@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <circle cx="50" cy="50" r="48" fill="#2d5a27"/>
-  <path d="M50 15 L50 70" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-  <path d="M35 75 L65 75" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-  <path d="M50 25 L35 35 L40 35 L30 45 L38 45 L28 58 L50 58 L72 58 L62 45 L70 45 L60 35 L65 35 Z" fill="#5cb85c"/>
+  <!-- Concentric circles matching the Baumsteiger logo (tree cross-section) -->
+  <circle cx="50" cy="50" r="48" stroke="#1b4332" stroke-width="4" fill="none"/>
+  <circle cx="50" cy="50" r="40" stroke="#1b4332" stroke-width="3.5" fill="none"/>
+  <circle cx="50" cy="50" r="33" stroke="#1b4332" stroke-width="3" fill="none"/>
+  <circle cx="50" cy="50" r="26" stroke="#1b4332" stroke-width="3" fill="none"/>
+  <circle cx="50" cy="50" r="20" stroke="#1b4332" stroke-width="2.5" fill="none"/>
+  <circle cx="50" cy="50" r="14" stroke="#1b4332" stroke-width="2.5" fill="none"/>
+  <circle cx="50" cy="50" r="8" stroke="#1b4332" stroke-width="2" fill="none"/>
+  <circle cx="50" cy="50" r="3" fill="#1b4332"/>
 </svg>
