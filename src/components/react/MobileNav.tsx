@@ -101,6 +101,7 @@ export default function MobileNav({ navigation }: Props) {
                                 href="#kontakt"
                                 onClick={handleLinkClick}
                                 className="block w-full py-3 px-6 bg-primary text-white text-center rounded-lg font-medium hover:bg-primary-dark transition-colors"
+                                style={{ outline: "none", boxShadow: "none" }}
                             >
                                 Kontakt aufnehmen
                             </a>

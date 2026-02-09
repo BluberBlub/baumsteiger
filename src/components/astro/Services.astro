@@ -30,13 +30,59 @@ import ServiceCard from "./ServiceCard.astro";
             </p>
         </div>
 
-        <!-- Services List -->
-        <div class="flex flex-col gap-8 md:gap-12">
+        <!-- Services Grid - 2x3 layout for 6 services -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
             {
-                services.map((service, index) => (
-                    <ServiceCard service={service} index={index} />
-                ))
+                services
+                    .slice(0, 6)
+                    .map((service, index) => (
+                        <ServiceCard service={service} index={index} />
+                    ))
             }
+        </div>
+
+        <!-- Last service featured or CTA row -->
+        <div
+            class="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto"
+        >
+            <ServiceCard service={services[6]} index={6} />
+
+            <!-- CTA Card - Minimalist -->
+            <div
+                class="h-full flex flex-col items-center justify-center bg-primary rounded-xl p-8 text-center text-white"
+            >
+                <h3
+                    class="text-xl font-bold mb-2"
+                    style="color: #ffffff !important;"
+                >
+                    Noch Fragen?
+                </h3>
+                <p
+                    class="text-white/80 text-sm mb-4"
+                    style="color: rgba(255,255,255,0.8) !important;"
+                >
+                    Ich berate Sie gerne persönlich.
+                </p>
+                <a
+                    href="#kontakt"
+                    class="inline-flex items-center gap-1 text-white font-medium text-sm border-b border-white/50 hover:border-white transition-colors"
+                    style="color: #ffffff !important;"
+                >
+                    Kontakt aufnehmen
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 </section>

@@ -112,6 +112,7 @@ export const companyInfo = {
 };
 
 export const navigation = [
+    { label: "Der Baumsteiger", href: "#intro" },
     { label: "Leistungen", href: "#leistungen" },
     { label: "Galerie", href: "#galerie" },
     { label: "Kontakt", href: "#kontakt" }
