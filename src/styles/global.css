@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ===================================
+   BAUMSTEIGER ALLGÄU - DESIGN TOKENS
+   =================================== */
+
+/* Custom Theme Variables */
+@theme {
+  /* Primary Colors - Forest Greens (unchanged, good for nature) */
+  --color-primary: #2d5a27;
+  --color-primary-dark: #1e3d1a;
+  --color-primary-light: #4a7c43;
+
+  /* Secondary Colors - Warm Earth Tones (Strengthened) */
+  --color-secondary: #8b6914;
+  --color-secondary-dark: #6b5010;
+  --color-secondary-light: #a88a2e;
+
+  /* Accent - Vivid Leaf Green */
+  --color-accent: #5cb85c;
+  --color-accent-dark: #449d44;
+
+  /* Warm Neutral Palette (Stone/Sand instead of Cool Gray) */
+  --color-neutral-50: #fafaf9;
+  /* Stone 50 */
+  --color-neutral-100: #f5f5f4;
+  /* Stone 100 */
+  --color-neutral-200: #e7e5e4;
+  /* Stone 200 */
+  --color-neutral-300: #d6d3d1;
+  /* Stone 300 */
+  --color-neutral-400: #a8a29e;
+  /* Stone 400 */
+  --color-neutral-500: #78716c;
+  /* Stone 500 */
+  --color-neutral-600: #57534e;
+  /* Stone 600 */
+  --color-neutral-700: #44403c;
+  /* Stone 700 */
+  --color-neutral-800: #292524;
+  /* Stone 800 */
+  --color-neutral-900: #1c1917;
+  /* Stone 900 */
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Bitter', serif;
+  /* Added for Headlines */
+
+  /* Spacing */
+  --spacing-section: 6rem;
+  --spacing-container: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ===================================
+   BASE STYLES
+   =================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-800 antialiased;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  @apply font-bold leading-tight text-neutral-900;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  @apply text-4xl md:text-6xl lg:text-7xl font-bold;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+}
+
+h3 {
+  @apply text-xl md:text-2xl font-semibold;
+}
+
+p {
+  @apply text-neutral-700 leading-relaxed text-lg;
+}
+
+/* Links */
+a {
+  @apply transition-all duration-300;
+}
+
+/* Focus States for Accessibility */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2;
+}
+
+/* Container */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1280px;
+}
+
+/* Section Spacing */
+.section {
+  @apply py-16 md:py-20 lg:py-24;
+}
+
+/* Button Base Styles */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300;
+}

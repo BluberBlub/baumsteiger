@@ -1,0 +1,57 @@
+---
+interface Props {
+    images?: Array<{
+        src: string;
+        alt: string;
+    }>;
+}
+
+// Default placeholder images - will be replaced with actual gallery images
+const defaultImages = [
+    {
+        src: "/images/gallery/gallery-1.jpg",
+        alt: "Professionelle Baumpflege in Seilklettertechnik",
+    },
+    {
+        src: "/images/gallery/gallery-2.jpg",
+        alt: "Baumfällung mit erfahrenen Spezialisten",
+    },
+    {
+        src: "/images/gallery/gallery-3.jpg",
+        alt: "Kronenpflege und Baumschnitt",
+    },
+    {
+        src: "/images/gallery/gallery-4.jpg",
+        alt: "Obstbaumschnitt in der Region Allgäu",
+    },
+    {
+        src: "/images/gallery/gallery-5.jpg",
+        alt: "Seilklettertechnik für schwer zugängliche Bäume",
+    },
+    {
+        src: "/images/gallery/gallery-6.jpg",
+        alt: "Baumpflege mit Sicherheit und Erfahrung",
+    },
+];
+
+import GalleryLightbox from "../react/GalleryLightbox";
+
+const { images = defaultImages } = Astro.props;
+---
+
+<section id="galerie" class="section bg-white">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                Galerie
+            </h2>
+            <p class="text-lg text-neutral-700">
+                Einblicke in meine Arbeit – professionelle Baumpflege in Aktion
+            </p>
+        </div>
+
+        <!-- Gallery Grid (Interactive Lightbox) -->
+        <GalleryLightbox client:load images={images} />
+    </div>
+</section>

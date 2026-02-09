@@ -1,0 +1,9 @@
+# User-agent: *
+# Allow all content to be indexed
+Allow: /
+
+# Reference to sitemap
+Sitemap: https://www.baumsteiger-allgaeu.de/sitemap.xml
+
+# Disallow admin/internal paths (none currently)
+# Disallow: /admin/

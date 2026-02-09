@@ -1,0 +1,129 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = "/images/og-image.jpg",
+} = Astro.props;
+
+const siteName = "Baumsteiger Allgäu";
+const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Baumsteiger Allgäu - Raphael Bernhardt" />
+    <meta name="geo.region" content="DE-BY" />
+    <meta name="geo.placename" content="Wangen im Allgäu" />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (LocalBusiness Schema for SEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Baumsteiger Allgäu",
+        "description": "Professionelle Baumpflege in Seilklettertechnik im Allgäu und der Bodenseeregion.",
+        "image": "/images/logo.png",
+        "url": "https://www.baumsteiger-allgaeu.de",
+        "telephone": "+4915128885660",
+        "email": "buero@baumsteiger-allgaeu.de",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Oflingser Weg 17",
+          "addressLocality": "Wangen im Allgäu",
+          "addressRegion": "BY",
+          "postalCode": "88239",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 47.6952,
+          "longitude": 9.8503
+        },
+        "areaServed": ["Allgäu", "Bodensee", "Ravensburg", "Lindau", "Kempten"],
+        "priceRange": "€€",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        }
+      }
+    </script>
+
+    <title>{fullTitle}</title>
+  </head>
+  <body
+    class="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 antialiased relative"
+  >
+    <!-- Subtle Paper Texture Overlay -->
+    <div
+      class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100]"
+      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E'); mix-blend-mode: multiply;"
+    >
+    </div>
+
+    <!-- Skip to Main Content (Accessibility) -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-[200] font-semibold"
+    >
+      Zum Hauptinhalt springen
+    </a>
+
+    <slot name="header" />
+
+    <main id="main" class="flex-1" role="main" tabindex="-1">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+
+    <slot name="cookie-consent" />
+  </body>
+</html>

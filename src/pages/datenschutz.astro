@@ -1,0 +1,188 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/astro/Header.astro";
+import Footer from "../components/astro/Footer.astro";
+import { companyInfo } from "../data/services";
+---
+
+<BaseLayout
+    title="Datenschutz"
+    description="Datenschutzerklärung von Baumsteiger Allgäu - Informationen zum Umgang mit Ihren personenbezogenen Daten"
+>
+    <Header slot="header" />
+
+    <article class="section">
+        <div class="container max-w-3xl">
+            <h1 class="text-4xl font-bold text-neutral-900 mb-8">
+                Datenschutzerklärung
+            </h1>
+
+            <section class="prose prose-neutral max-w-none space-y-8">
+                <div>
+                    <h2
+                        class="text-2xl font-semibold text-neutral-900 mt-8 mb-4"
+                    >
+                        Allgemeines zur Datenverarbeitung
+                    </h2>
+
+                    <h3 class="text-xl font-medium text-neutral-900 mt-6 mb-3">
+                        Umfang der Verarbeitung personenbezogener Daten
+                    </h3>
+                    <p class="text-neutral-700 mb-4">
+                        Wir erheben und verwenden personenbezogene Daten unserer
+                        Nutzer grundsätzlich nur, soweit dies zur Bereitstellung
+                        einer funktionsfähigen Website sowie unserer Inhalte und
+                        Leistungen erforderlich ist. Die Erhebung und Verwendung
+                        personenbezogener Daten unserer Nutzer erfolgt
+                        regelmäßig nur nach Einwilligung des Nutzers. Eine
+                        Ausnahme gilt in solchen Fällen, in denen eine vorherige
+                        Einholung einer Einwilligung aus tatsächlichen Gründen
+                        nicht möglich ist und die Verarbeitung der Daten durch
+                        gesetzliche Vorschriften gestattet ist.
+                    </p>
+
+                    <h3 class="text-xl font-medium text-neutral-900 mt-6 mb-3">
+                        Rechtsgrundlage für die Verarbeitung personenbezogener
+                        Daten
+                    </h3>
+                    <p class="text-neutral-700 mb-4">
+                        Soweit wir für Verarbeitungsvorgänge personenbezogener
+                        Daten eine Einwilligung der betroffenen Person einholen,
+                        dient Art. 6 Abs. 1 lit. a EU-Datenschutzgrundverordnung
+                        (DSGVO) als Rechtsgrundlage. Bei der Verarbeitung von
+                        personenbezogenen Daten, die zur Erfüllung eines
+                        Vertrages, dessen Vertragspartei die betroffene Person
+                        ist, erforderlich ist, dient Art. 6 Abs. 1 lit. b DSGVO
+                        als Rechtsgrundlage.
+                    </p>
+
+                    <h3 class="text-xl font-medium text-neutral-900 mt-6 mb-3">
+                        Datenlöschung und Speicherdauer
+                    </h3>
+                    <p class="text-neutral-700 mb-4">
+                        Die personenbezogenen Daten der betroffenen Person
+                        werden gelöscht oder gesperrt, sobald der Zweck der
+                        Speicherung entfällt. Eine Speicherung kann darüber
+                        hinaus erfolgen, wenn dies durch den europäischen oder
+                        nationalen Gesetzgeber in unionsrechtlichen
+                        Verordnungen, Gesetzen oder sonstigen Vorschriften,
+                        denen der Verantwortliche unterliegt, vorgesehen wurde.
+                    </p>
+                </div>
+
+                <div>
+                    <h2
+                        class="text-2xl font-semibold text-neutral-900 mt-8 mb-4"
+                    >
+                        Ihre Rechte
+                    </h2>
+                    <p class="text-neutral-700 mb-4">
+                        Sie haben das Recht uns mitzuteilen, dass Sie:
+                    </p>
+                    <ul
+                        class="list-disc list-inside text-neutral-700 space-y-2 mb-4"
+                    >
+                        <li>
+                            zukünftig nicht von uns kontaktiert werden möchten;
+                        </li>
+                        <li>
+                            eine Kopie der persönlichen Informationen erhalten
+                            möchten, die wir über Sie haben;
+                        </li>
+                        <li>
+                            wünschen, dass wir Ihre persönlichen Informationen
+                            in unseren Aufzeichnungen korrigieren, aktualisieren
+                            oder löschen;
+                        </li>
+                        <li>
+                            einen Missbrauch Ihrer persönlichen Informationen
+                            melden möchten.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2
+                        class="text-2xl font-semibold text-neutral-900 mt-8 mb-4"
+                    >
+                        Kontaktformular und E-Mail-Kontakt
+                    </h2>
+                    <p class="text-neutral-700 mb-4">
+                        Auf unserer Internetseite ist ein Kontaktformular
+                        vorhanden, welches für die elektronische Kontaktaufnahme
+                        genutzt werden kann. Nimmt ein Nutzer diese Möglichkeit
+                        wahr, so werden die in der Eingabemaske eingegeben Daten
+                        an uns übermittelt und gespeichert. Diese Daten sind:
+                        Name, E-Mail-Adresse, Telefonnummer (optional),
+                        Nachricht.
+                    </p>
+                    <p class="text-neutral-700 mb-4">
+                        Im Zeitpunkt der Absendung der Nachricht werden zudem
+                        folgende Daten gespeichert: Datum und Uhrzeit der
+                        Absendung. Für die Verarbeitung der Daten wird im Rahmen
+                        des Absendevorgangs Ihre Einwilligung eingeholt und auf
+                        diese Datenschutzerklärung verwiesen.
+                    </p>
+                </div>
+
+                <div>
+                    <h2
+                        class="text-2xl font-semibold text-neutral-900 mt-8 mb-4"
+                    >
+                        Cookies
+                    </h2>
+                    <p class="text-neutral-700 mb-4">
+                        Diese Website verwendet Cookies. Bei Cookies handelt es
+                        sich um Textdateien, die im Internetbrowser bzw. vom
+                        Internetbrowser auf dem Computersystem des Nutzers
+                        gespeichert werden. Wir verwenden ausschließlich
+                        technisch notwendige Cookies sowie Cookies zur
+                        Speicherung Ihrer Cookie-Einwilligung.
+                    </p>
+                </div>
+
+                <div>
+                    <h2
+                        class="text-2xl font-semibold text-neutral-900 mt-8 mb-4"
+                    >
+                        SSL-Verschlüsselung
+                    </h2>
+                    <p class="text-neutral-700 mb-4">
+                        Diese Seite nutzt aus Gründen der Sicherheit und zum
+                        Schutz der Übertragung vertraulicher Inhalte, wie zum
+                        Beispiel der Anfragen, die Sie an uns als
+                        Seitenbetreiber senden, eine SSL-Verschlüsselung. Eine
+                        verschlüsselte Verbindung erkennen Sie daran, dass die
+                        Adresszeile des Browsers von „http://" auf „https://"
+                        wechselt und an dem Schloss-Symbol in Ihrer
+                        Browserzeile.
+                    </p>
+                </div>
+
+                <div>
+                    <h2
+                        class="text-2xl font-semibold text-neutral-900 mt-8 mb-4"
+                    >
+                        Verantwortlicher
+                    </h2>
+                    <address class="not-italic text-neutral-700">
+                        <p>
+                            {companyInfo.name}<br />
+                            {companyInfo.owner}<br />
+                            {companyInfo.street}<br />
+                            {companyInfo.zip}
+                            {companyInfo.city}<br />
+                            E-Mail: <a
+                                href={`mailto:${companyInfo.email}`}
+                                class="text-primary hover:underline"
+                                >{companyInfo.email}</a
+                            >
+                        </p>
+                    </address>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <Footer slot="footer" />
+</BaseLayout>

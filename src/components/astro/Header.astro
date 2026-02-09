@@ -1,0 +1,102 @@
+---
+import { navigation, companyInfo } from "../../data/services";
+import MobileNav from "../react/MobileNav";
+---
+
+<header
+    class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 shadow-sm"
+    role="banner"
+    id="site-header"
+>
+    <nav
+        class="container flex items-center justify-between h-16 md:h-20"
+        aria-label="Hauptnavigation"
+    >
+        <!-- Logo -->
+        <a
+            href="/"
+            class="flex items-center gap-3 text-primary-dark font-bold text-lg md:text-xl"
+        >
+            <img
+                src="/images/logo.png"
+                alt="Baumsteiger Allgäu Logo"
+                class="h-12 md:h-14 w-auto"
+            />
+            <span class="hidden lg:inline">{companyInfo.name}</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center gap-8">
+            {
+                navigation
+                    .filter((item) => item.href !== "#kontakt")
+                    .map((item) => (
+                        <li>
+                            <a
+                                href={item.href}
+                                class="nav-link relative text-neutral-700 hover:text-primary font-semibold transition-colors py-2"
+                                data-section={item.href.replace("#", "")}
+                            >
+                                {item.label}
+                                <span class="nav-indicator absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-left" />
+                            </a>
+                        </li>
+                    ))
+            }
+            <li>
+                <a href="#kontakt" class="btn btn-primary text-sm">
+                    Kontakt aufnehmen
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Navigation Toggle -->
+        <MobileNav client:visible navigation={navigation} />
+    </nav>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16 md:h-20"></div>
+
+<script>
+    // Scroll-spy for navigation active state
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -70% 0px",
+            threshold: 0,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.getAttribute("id");
+
+                    navLinks.forEach((link) => {
+                        const linkSection = link.getAttribute("data-section");
+                        const indicator = link.querySelector(".nav-indicator");
+
+                        if (linkSection === sectionId) {
+                            link.classList.add("text-primary");
+                            link.classList.remove("text-neutral-700");
+                            if (indicator)
+                                indicator.classList.add("scale-x-100");
+                        } else {
+                            link.classList.remove("text-primary");
+                            link.classList.add("text-neutral-700");
+                            if (indicator)
+                                indicator.classList.remove("scale-x-100");
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+    });
+</script>

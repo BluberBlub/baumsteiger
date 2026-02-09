@@ -1,0 +1,126 @@
+---
+import type { Service } from "../../types";
+
+interface Props {
+    service: Service;
+    index: number;
+}
+
+const { service, index } = Astro.props;
+const isEven = index % 2 === 0;
+
+// Map icon names to SVG paths
+const iconPaths: Record<string, string> = {
+    TreeDeciduous:
+        "M12 22v-5M9 22h6M12 17c-4 0-8-3.582-8-8s4-8 8-8 8 3.582 8 8-4 8-8 8z",
+    Axe: "M12 2L2 12h3l7-7M22 22l-9-9M12 12l-4 4M17 17l-5-5",
+    ClipboardList:
+        "M12 3a1 1 0 0 0-1 1H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3a1 1 0 0 0-1-1zM9 12h6M9 16h6",
+    Link: "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71",
+    Apple: "M12 3c-4 0-5 3-5 5 0 3 2 8 5 12 3-4 5-9 5-12 0-2-1-5-5-5zM10 2a2 2 0 0 1 4 0",
+    Trees: "M14 17v5M10 17v5M17 9l5-2-5-5v7zM7 9L2 7l5-5v7zM12 22V8M8.4 14H15.6M9.2 10h5.6",
+    Leaf: "M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10ZM2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12",
+};
+
+const iconPath = iconPaths[service.icon] || iconPaths.TreeDeciduous;
+---
+
+<article class={`group relative ${isEven ? "" : "md:flex-row-reverse"}`}>
+    <div
+        class={`flex flex-col md:flex-row gap-0 bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ${isEven ? "" : "md:flex-row-reverse"}`}
+    >
+        <!-- Image Side -->
+        <div
+            class="relative md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden"
+        >
+            {
+                service.image && (
+                    <img
+                        src={service.image}
+                        alt={service.title}
+                        loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                )
+            }
+            <!-- Overlay Gradient -->
+            <div
+                class={`absolute inset-0 bg-gradient-to-${isEven ? "r" : "l"} from-transparent via-transparent to-white/20`}
+            >
+            </div>
+
+            <!-- Number Badge -->
+            <div
+                class="absolute top-6 left-6 w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg"
+            >
+                <span class="text-2xl font-bold text-primary">0{index + 1}</span
+                >
+            </div>
+        </div>
+
+        <!-- Content Side -->
+        <div class="md:w-1/2 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+            <!-- Icon -->
+            <div
+                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mb-6 shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-8 h-8 text-white"
+                >
+                    <path d={iconPath}></path>
+                </svg>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+                {service.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-neutral-600 leading-relaxed mb-6 text-lg">
+                {service.description}
+            </p>
+
+            <!-- Details -->
+            {
+                service.details && service.details.length > 0 && (
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        {service.details.slice(0, 4).map((detail) => (
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-accent" />
+                                <span class="text-sm text-neutral-700 font-medium">
+                                    {detail}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )
+            }
+
+            <!-- CTA -->
+            <a
+                href="#kontakt"
+                class="inline-flex items-center gap-3 bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 self-start group/btn hover:shadow-lg hover:shadow-primary/30"
+            >
+                <span>Jetzt anfragen</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</article>

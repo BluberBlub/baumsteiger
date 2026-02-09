@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/astro/Header.astro";
+import Footer from "../components/astro/Footer.astro";
+import Hero from "../components/astro/Hero.astro";
+import Intro from "../components/astro/Intro.astro";
+import Services from "../components/astro/Services.astro";
+import CTASection from "../components/astro/CTASection.astro";
+import Gallery from "../components/astro/Gallery.astro";
+import Reviews from "../components/astro/Reviews.astro";
+import Contact from "../components/astro/Contact.astro";
+import CookieConsent from "../components/react/CookieConsent";
+---
+
+<BaseLayout
+	title="Baumsteiger Allgäu"
+	description="Professionelle Baumpflege in Seilklettertechnik im Allgäu und der Bodenseeregion. Baumschnitt, Baumfällungen, Gutachten und Forstarbeiten von Raphael Bernhardt."
+>
+	<Header slot="header" />
+
+	<Hero
+		title="Professionelle Baumpflege in Seilklettertechnik"
+		subtitle="Baumarbeiten im Allgäu und der Bodenseeregion – fachgerecht und nachhaltig"
+		ctaText="Jetzt Kontakt aufnehmen"
+		ctaHref="#kontakt"
+	/>
+
+	<Intro />
+
+	<Services />
+
+	<CTASection />
+
+	<Gallery />
+
+	<Reviews />
+
+	<Contact />
+
+	<Footer slot="footer" />
+
+	<CookieConsent client:load slot="cookie-consent" />
+</BaseLayout>

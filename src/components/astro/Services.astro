@@ -1,0 +1,42 @@
+---
+import { services } from "../../data/services";
+import ServiceCard from "./ServiceCard.astro";
+---
+
+<section id="leistungen" class="section bg-neutral-50 relative overflow-hidden">
+    <!-- Pattern Background -->
+    <div
+        class="absolute inset-0 opacity-[0.03]"
+        style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"
+    >
+    </div>
+
+    <div class="container relative z-10">
+        <!-- Section Header -->
+        <div
+            class="text-center max-w-3xl mx-auto mb-16 md:mb-24 animate-fade-in-up"
+        >
+            <span
+                class="text-accent font-semibold tracking-wider uppercase text-sm mb-2 block"
+            >
+                Unser Leistungsangebot
+            </span>
+            <h2 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">
+                Baumarbeiten im Allgäu & Bodenseeregion
+            </h2>
+            <p class="text-xl text-neutral-700 leading-relaxed font-medium">
+                Fachgerecht und nachhaltig – ich biete Ihnen das komplette
+                Spektrum professioneller Baumpflege aus einer Hand.
+            </p>
+        </div>
+
+        <!-- Services List -->
+        <div class="flex flex-col gap-8 md:gap-12">
+            {
+                services.map((service, index) => (
+                    <ServiceCard service={service} index={index} />
+                ))
+            }
+        </div>
+    </div>
+</section>
