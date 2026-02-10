@@ -1,9 +1,8 @@
-# User-agent: *
-# Allow all content to be indexed
+User-agent: *
 Allow: /
 
 # Reference to sitemap
-Sitemap: https://www.baumsteiger-allgaeu.de/sitemap.xml
+Sitemap: https://baumsteiger.niko-endres.de/sitemap.xml
 
 # Disallow admin/internal paths (none currently)
 # Disallow: /admin/

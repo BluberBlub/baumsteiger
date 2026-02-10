@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import StickyContact from "../components/astro/StickyContact.astro";
 
 interface Props {
   title: string;
@@ -37,7 +38,10 @@ const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta
+      property="og:image"
+      content="https://baumsteiger.niko-endres.de/images/og-image.jpg"
+    />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="de_DE" />
 
@@ -45,7 +49,10 @@ const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta
+      name="twitter:image"
+      content="https://baumsteiger.niko-endres.de/images/og-image.jpg"
+    />
 
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow" />
@@ -56,10 +63,6 @@ const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Structured Data (LocalBusiness Schema for SEO) -->
     <script type="application/ld+json">
@@ -69,7 +72,7 @@ const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
         "name": "Baumsteiger Allgäu",
         "description": "Professionelle Baumpflege in Seilklettertechnik im Allgäu und der Bodenseeregion.",
         "image": "/images/logo.png",
-        "url": "https://www.baumsteiger-allgaeu.de",
+        "url": "https://baumsteiger.niko-endres.de",
         "telephone": "+4915128885660",
         "email": "buero@baumsteiger-allgaeu.de",
         "address": {
@@ -123,6 +126,8 @@ const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
     </main>
 
     <slot name="footer" />
+
+    <StickyContact />
 
     <slot name="cookie-consent" />
   </body>
