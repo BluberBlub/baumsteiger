@@ -86,12 +86,12 @@ export default function GalleryLightbox({ images }: Props) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-8"
+                        className="fixed inset-0 z-[990] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-8"
                         onClick={closeLightbox}
                     >
                         {/* Close Button */}
                         <button
-                            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/70 hover:text-white bg-black/20 hover:bg-white/10 rounded-full p-2 transition-colors z-50"
+                            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/70 hover:text-white bg-black/20 hover:bg-white/10 rounded-full p-2 transition-colors z-[999]"
                             onClick={closeLightbox}
                             aria-label="Galerie schließen"
                         >
@@ -100,7 +100,7 @@ export default function GalleryLightbox({ images }: Props) {
 
                         {/* Prev Button */}
                         <button
-                            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/20 hover:bg-white/10 rounded-full p-2 transition-colors z-40"
+                            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/20 hover:bg-white/10 rounded-full p-2 transition-colors z-[999]"
                             onClick={prevImage}
                             aria-label="Vorheriges Bild"
                         >
@@ -109,7 +109,7 @@ export default function GalleryLightbox({ images }: Props) {
 
                         {/* Next Button */}
                         <button
-                            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/20 hover:bg-white/10 rounded-full p-2 transition-colors z-40"
+                            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/20 hover:bg-white/10 rounded-full p-2 transition-colors z-[999]"
                             onClick={nextImage}
                             aria-label="Nächstes Bild"
                         >

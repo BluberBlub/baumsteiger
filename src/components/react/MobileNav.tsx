@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "../../lib/cn";
 
 interface NavLink {
@@ -12,6 +13,11 @@ interface Props {
 
 export default function MobileNav({ navigation }: Props) {
     const [isOpen, setIsOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Close menu when clicking outside or pressing Escape
     useEffect(() => {
@@ -36,7 +42,7 @@ export default function MobileNav({ navigation }: Props) {
 
     return (
         <>
-            {/* Hamburger Button */}
+            {/* Hamburger Button - stays in Header */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="md:hidden relative z-[70] w-10 h-10 flex items-center justify-center"
@@ -65,50 +71,56 @@ export default function MobileNav({ navigation }: Props) {
                 </div>
             </button>
 
-            {/* Overlay */}
-            <div
-                className={cn(
-                    "fixed inset-0 z-[60] bg-black/50 transition-opacity duration-300 md:hidden",
-                    isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-                )}
-                onClick={() => setIsOpen(false)}
-                aria-hidden="true"
-            />
+            {/* Portal for Overlay and Menu - moves to body */}
+            {mounted && createPortal(
+                <>
+                    {/* Overlay */}
+                    <div
+                        className={cn(
+                            "fixed inset-0 z-[940] bg-black/50 transition-opacity duration-300 md:hidden",
+                            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+                        )}
+                        onClick={() => setIsOpen(false)}
+                        aria-hidden="true"
+                    />
 
-            {/* Mobile Menu */}
-            <nav
-                className={cn(
-                    "fixed top-0 right-0 z-[60] h-full w-72 bg-white shadow-xl transition-transform duration-300 md:hidden",
-                    isOpen ? "translate-x-0" : "translate-x-full"
-                )}
-                aria-label="Mobile Navigation"
-            >
-                <div className="pt-20 px-6">
-                    <ul className="space-y-4">
-                        {navigation.map((item) => (
-                            <li key={item.href}>
-                                <a
-                                    href={item.href}
-                                    onClick={handleLinkClick}
-                                    className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors border-b border-neutral-100"
-                                >
-                                    {item.label}
-                                </a>
-                            </li>
-                        ))}
-                        <li className="pt-4">
-                            <a
-                                href="#kontakt"
-                                onClick={handleLinkClick}
-                                className="block w-full py-3 px-6 bg-primary text-white text-center rounded-lg font-medium hover:bg-primary-dark transition-colors"
-                                style={{ outline: "none", boxShadow: "none" }}
-                            >
-                                Kontakt aufnehmen
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                    {/* Mobile Menu */}
+                    <nav
+                        className={cn(
+                            "fixed top-0 right-0 z-[950] h-full w-72 bg-white shadow-xl transition-transform duration-300 md:hidden",
+                            isOpen ? "translate-x-0" : "translate-x-full"
+                        )}
+                        aria-label="Mobile Navigation"
+                    >
+                        <div className="pt-20 px-6">
+                            <ul className="space-y-4">
+                                {navigation.map((item) => (
+                                    <li key={item.href}>
+                                        <a
+                                            href={item.href}
+                                            onClick={handleLinkClick}
+                                            className="block py-3 text-lg font-medium text-neutral-700 hover:text-primary transition-colors border-b border-neutral-100"
+                                        >
+                                            {item.label}
+                                        </a>
+                                    </li>
+                                ))}
+                                <li className="pt-4">
+                                    <a
+                                        href="#kontakt"
+                                        onClick={handleLinkClick}
+                                        className="block w-full py-3 px-6 bg-primary text-white text-center rounded-lg font-medium hover:bg-primary-dark transition-colors"
+                                        style={{ outline: "none", boxShadow: "none" }}
+                                    >
+                                        Kontakt aufnehmen
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </>,
+                document.body
+            )}
         </>
     );
 }

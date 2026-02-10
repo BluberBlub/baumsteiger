@@ -38,12 +38,12 @@ export default function CookieConsent() {
         <>
             {/* Backdrop */}
             <div
-                className="fixed inset-0 bg-black/60 z-[150] transition-opacity duration-300"
+                className="fixed inset-0 bg-black/60 z-[970] transition-opacity duration-300"
                 aria-hidden="true"
             />
             <div
                 className={cn(
-                    "fixed bottom-0 left-0 right-0 z-[160]",
+                    "fixed bottom-0 left-0 right-0 z-[980]",
                     "bg-white border-t border-neutral-200 shadow-lg",
                     "animate-slide-up"
                 )}
