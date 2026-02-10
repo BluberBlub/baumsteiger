@@ -3,8 +3,16 @@ import { companyInfo } from "../../data/services";
 ---
 
 <div
-    class="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden bg-neutral-200"
+    class="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden bg-neutral-200 relative"
+    id="map-container"
 >
+    <!-- Scroll-blocking overlay: click to activate map -->
+    <div
+        class="absolute inset-0 z-10 cursor-pointer"
+        id="map-overlay"
+        title="Klicken um Karte zu aktivieren"
+    >
+    </div>
     <iframe
         title="Standort Baumsteiger Allgäu"
         src={`https://www.openstreetmap.org/export/embed.html?bbox=${companyInfo.coordinates.lng - 0.02}%2C${companyInfo.coordinates.lat - 0.01}%2C${companyInfo.coordinates.lng + 0.02}%2C${companyInfo.coordinates.lat + 0.01}&layer=mapnik&marker=${companyInfo.coordinates.lat}%2C${companyInfo.coordinates.lng}`}
@@ -14,6 +22,19 @@ import { companyInfo } from "../../data/services";
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
+
+<script>
+    const overlay = document.getElementById("map-overlay");
+    const container = document.getElementById("map-container");
+    if (overlay && container) {
+        overlay.addEventListener("click", () => {
+            overlay.style.display = "none";
+        });
+        container.addEventListener("mouseleave", () => {
+            overlay.style.display = "";
+        });
+    }
+</script>
 
 <a
     href={`https://www.openstreetmap.org/?mlat=${companyInfo.coordinates.lat}&mlon=${companyInfo.coordinates.lng}#map=14/${companyInfo.coordinates.lat}/${companyInfo.coordinates.lng}`}
